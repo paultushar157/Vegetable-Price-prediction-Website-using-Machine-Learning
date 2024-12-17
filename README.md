@@ -109,7 +109,7 @@ vegetable-price-prediction/
 |-- model/                   # Machine Learning model files
 |   |-- model.pkl            # Trained model
 |-- data/                    # Dataset directory
-|   |-- vegetable_prices.csv # Sample dataset
+|   |-- vegetable_prices_additional_data.csv # Sample dataset
 |-- requirements.txt         # Required libraries
 |-- README.md                # Project documentation
 ```
