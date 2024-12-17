@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vegetable Price Predictor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+       <!-- Logo Section -->
+       <div class="logo">
+        
+          <img src="static/logo.jpg" alt="Logo" />
+          <span>Smart.A</span>
+        
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#" class="button login-btn" id="loginBtn">Login</a></li>
+          <li><a href="#" class="button signup-btn" id="signupBtn">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="static/feild.jpg" alt="Wheat Field">
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <img src="static/fruits.jpg" alt="Fruits">
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Services</h2>
+    <div class="service-container">
+      <a href="predict.html" class="service">Price predict</a>
+      <a href="service2.html" class="service">Service 2</a>
+      <a href="service3.html" class="service">Service 3</a>
+    </div>
+  </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+          <p>&copy; 2024 Smart.A. All rights reserved.</p>
+        </div>
+      </footer>
+  <!-- Login Popup -->
+  <div class="popup" id="loginPopup">
+    <div class="popup-content">
+      <span class="close-btn" id="closeLogin">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SignUp Popup -->
+  <div class="popup" id="signupPopup">
+    <div class="popup-content">
+      <span class="close-btn" id="closeSignup">&times;</span>
+      <h2>Sign Up</h2>
+      <form>
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" required>
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" required>
+        <label for="signupConfirmPassword">Confirm Password:</label>
+        <input type="password" id="signupConfirmPassword" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

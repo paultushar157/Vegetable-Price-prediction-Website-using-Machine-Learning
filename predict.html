@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vegetable Price Predictor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+       <!-- Logo Section -->
+       <div class="logo">
+        
+          <img src="static/logo.jpg" alt="Logo" />
+          <span>Smart.A</span>
+        
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#" class="button login-btn" id="loginBtn">Login</a></li>
+          <li><a href="#" class="button signup-btn" id="signupBtn">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h1>Vegetable Price Predictor</h1>
+    </div>
+  </section>
+
+  <!-- Prediction Section -->
+  <section id="pre" class="predictor">
+    <div class="container predictor-container">
+      <!-- Form Section -->
+      <div class="predictor-form">
+        <h2>Predict Prices</h2>
+        <form>
+            <!-- Commodity -->
+            <label for="commodity">Commodity</label>
+            <select id="commodity" required>
+              <option value="onion">Onion</option>
+              <option value="tomato">Tomato</option>
+              <option value="potato">Potato</option>
+              <option value="carrot">Carrot</option>
+              <option value="cabbage">Cabbage</option>
+              <option value="cauliflower">Cauliflower</option>
+              <option value="spinach">Spinach</option>
+              <option value="beans">Beans</option>
+              <option value="peas">Peas</option>
+            </select>
+          
+            <!-- State -->
+            <label for="state">State</label>
+            <select id="state" required onchange="updateCitiesAndDistricts()">
+              <option value="maharashtra">Maharashtra</option>
+              <option value="karnataka">Karnataka</option>
+              <option value="tamil-nadu">Tamil Nadu</option>
+              <option value="uttar-pradesh">Uttar Pradesh</option>
+              <option value="rajasthan">Rajasthan</option>
+              <option value="gujarat">Gujarat</option>
+              <option value="west-bengal">West Bengal</option>
+              <!-- Add more states as needed -->
+            </select>
+          
+            <!-- District -->
+            <label for="district">District</label>
+            <select id="district" required>
+              <option value="">Select a District</option>
+            
+              <!-- Maharashtra -->
+              <optgroup label="Maharashtra">
+                <option value="pune">Pune</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="nagpur">Nagpur</option>
+                <option value="nashik">Nashik</option>
+                <option value="aurangabad">Aurangabad</option>
+              </optgroup>
+            
+              <!-- Karnataka -->
+              <optgroup label="Karnataka">
+                <option value="bengaluru">Bengaluru</option>
+                <option value="mysuru">Mysuru</option>
+                <option value="hubballi">Hubballi</option>
+                <option value="mangaluru">Mangaluru</option>
+                <option value="shivamogga">Shivamogga</option>
+              </optgroup>
+            
+              <!-- Tamil Nadu -->
+              <optgroup label="Tamil Nadu">
+                <option value="chennai">Chennai</option>
+                <option value="coimbatore">Coimbatore</option>
+                <option value="madurai">Madurai</option>
+                <option value="tiruchirappalli">Tiruchirappalli</option>
+                <option value="vellore">Vellore</option>
+              </optgroup>
+            
+              <!-- Uttar Pradesh -->
+              <optgroup label="Uttar Pradesh">
+                <option value="lucknow">Lucknow</option>
+                <option value="kanpur">Kanpur</option>
+                <option value="agra">Agra</option>
+                <option value="varanasi">Varanasi</option>
+                <option value="meerut">Meerut</option>
+              </optgroup>
+            
+              <!-- Rajasthan -->
+              <optgroup label="Rajasthan">
+                <option value="jaipur">Jaipur</option>
+                <option value="jodhpur">Jodhpur</option>
+                <option value="udaipur">Udaipur</option>
+                <option value="ajmer">Ajmer</option>
+                <option value="kota">Kota</option>
+              </optgroup>
+            
+              <!-- Gujarat -->
+              <optgroup label="Gujarat">
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="vadodara">Vadodara</option>
+                <option value="surat">Surat</option>
+                <option value="rajkot">Rajkot</option>
+                <option value="bhavnagar">Bhavnagar</option>
+              </optgroup>
+            
+              <!-- West Bengal -->
+              <optgroup label="West Bengal">
+                <option value="kolkata">Kolkata</option>
+                <option value="howrah">Howrah</option>
+                <option value="durgapur">Durgapur</option>
+                <option value="asansol">Asansol</option>
+                <option value="siliguri">Siliguri</option>
+              </optgroup>
+            </select>
+            
+
+              <!-- District options will be dynamically updated -->
+         
+          
+            <!-- City -->
+            <label for="city">City</label>
+            <select id="city" required>
+              <option value="">Select a City</option>
+            
+              <!-- Maharashtra -->
+              <optgroup label="Maharashtra">
+                <option value="pune">Pune</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="nagpur">Nagpur</option>
+                <option value="nashik">Nashik</option>
+                <option value="aurangabad">Aurangabad</option>
+              </optgroup>
+            
+              <!-- Karnataka -->
+              <optgroup label="Karnataka">
+                <option value="bengaluru">Bengaluru</option>
+                <option value="mysuru">Mysuru</option>
+                <option value="hubballi">Hubballi</option>
+                <option value="mangaluru">Mangaluru</option>
+                <option value="shivamogga">Shivamogga</option>
+              </optgroup>
+            
+              <!-- Tamil Nadu -->
+              <optgroup label="Tamil Nadu">
+                <option value="chennai">Chennai</option>
+                <option value="coimbatore">Coimbatore</option>
+                <option value="madurai">Madurai</option>
+                <option value="tiruchirappalli">Tiruchirappalli</option>
+                <option value="vellore">Vellore</option>
+              </optgroup>
+            
+              <!-- Uttar Pradesh -->
+              <optgroup label="Uttar Pradesh">
+                <option value="lucknow">Lucknow</option>
+                <option value="kanpur">Kanpur</option>
+                <option value="agra">Agra</option>
+                <option value="varanasi">Varanasi</option>
+                <option value="meerut">Meerut</option>
+              </optgroup>
+            
+              <!-- Rajasthan -->
+              <optgroup label="Rajasthan">
+                <option value="jaipur">Jaipur</option>
+                <option value="jodhpur">Jodhpur</option>
+                <option value="udaipur">Udaipur</option>
+                <option value="ajmer">Ajmer</option>
+                <option value="kota">Kota</option>
+              </optgroup>
+            
+              <!-- Gujarat -->
+              <optgroup label="Gujarat">
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="vadodara">Vadodara</option>
+                <option value="surat">Surat</option>
+                <option value="rajkot">Rajkot</option>
+                <option value="bhavnagar">Bhavnagar</option>
+              </optgroup>
+            
+              <!-- West Bengal -->
+              <optgroup label="West Bengal">
+                <option value="kolkata">Kolkata</option>
+                <option value="howrah">Howrah</option>
+                <option value="durgapur">Durgapur</option>
+                <option value="asansol">Asansol</option>
+                <option value="siliguri">Siliguri</option>
+              </optgroup>
+            </select>
+            
+          
+            <!-- Market -->
+            <label for="market">Market</label>
+            <select id="market" required>
+              <option value="a1">A1</option>
+              <option value="b2">B2</option>
+              <option value="c3">C3</option>
+              <option value="manual">Other (Enter manually)</option>
+            </select>
+            <input type="text" id="manual-market" placeholder="Enter market manually" style="display: none;" />
+          
+             
+            <!-- Date -->
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required />
+          
+           
+          <button type="button" class="button predict-btn">Predict</button>
+          <button type="button" class="button signout-btn">Sign Out</button>
+        </form>
+      </div>
+
+      <!-- Table Section -->
+      <div class="prediction-table hidden">
+        <h2>Price Prediction Data</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+             
+              <th>Actual Price/Quintal</th>
+              <th>Predicted Price/Quintal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample data -->
+            <tr>
+              <td>01-01-2019</td>
+              
+              <td>1000</td>
+              <td>1042.14</td>
+            </tr>
+            <tr>
+              <td>02-01-2019</td>
+             
+              <td>900</td>
+              <td>920.50</td>
+            </tr>
+            <tr>
+              <td>03-01-2019</td>
+            
+              <td>850</td>
+              <td>870.80</td>
+            </tr>
+            <tr>
+              <td>04-01-2019</td>
+            
+              <td>750</td>
+              <td>770.60</td>
+            </tr>
+            <tr>
+              <td>05-01-2019</td>
+            
+              <td>800</td>
+              <td>810.20</td>
+            </tr>
+            <tr>
+              <td>06-01-2019</td>
+             
+              <td>400</td>
+              <td>420.35</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Smart.A. All rights reserved.</p>
+    </div>
+  </footer>
+<!-- Login Popup -->
+<div class="popup" id="loginPopup">
+    <div class="popup-content">
+      <span class="close-btn" id="closeLogin">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SignUp Popup -->
+  <div class="popup" id="signupPopup">
+    <div class="popup-content">
+      <span class="close-btn" id="closeSignup">&times;</span>
+      <h2>Sign Up</h2>
+      <form>
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" required>
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" required>
+        <label for="signupConfirmPassword">Confirm Password:</label>
+        <input type="password" id="signupConfirmPassword" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+</body>
+</html>
